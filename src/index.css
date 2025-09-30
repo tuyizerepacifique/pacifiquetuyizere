@@ -1,0 +1,225 @@
+/* File: index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dashboard layout fixes */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1280px) {
+  .main-content-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Fix for DataTable overflow */
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.table-fixed-layout {
+  table-layout: fixed;
+  width: 100%;
+  min-width: 800px;
+}
+
+/* Profile menu z-index fix */
+.profile-menu {
+  z-index: 50;
+}
+
+/* Sidebar transition fix */
+.sidebar-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar collapse styles */
+.sidebar-collapsed {
+  width: 80px;
+}
+
+.sidebar-expanded {
+  width: 280px;
+}
+
+/* Add these styles to your existing index.css */
+
+/* Dashboard specific styles */
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.dark .dashboard-container {
+  background-color: #111827;
+}
+
+/* Table styles for dark mode */
+.table-dark {
+  background-color: #1f2937;
+}
+
+.table-dark th {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.table-dark td {
+  color: #f3f4f6;
+  border-color: #4b5563;
+}
+
+/* Card styles */
+.card-dark {
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Hover effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Responsive grid fixes */
+@media (max-width: 1279px) {
+  .responsive-grid > div {
+    width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Loading animation for dark mode */
+.dark-pulse {
+  background-color: #374151;
+}
+
+.dark-pulse::after {
+  content: '';
+  display: block;
+  background-color: #4b5563;
+  border-radius: 0.25rem;
+  height: 1rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Theme toggle button styles */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .theme-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Profile dropdown styles */
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-menu-items {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  width: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: white;
+  overflow: hidden;
+}
+
+.dark .profile-menu-items {
+  background-color: #1f2937;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.profile-menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-menu-item:hover {
+  background-color: #f1f5f9;
+}
+
+.dark .profile-menu-item:hover {
+  background-color: #374151;
+}
